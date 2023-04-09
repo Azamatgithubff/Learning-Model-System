@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'courses.apps.CoursesConfig',
     'rest_framework',
-
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -124,13 +124,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-<<<<<<< HEAD
-
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
-=======
 REST_FRAMEWORK = {
     'DEFAULT_RENDER_CLASSES': [
         'rest_framework.renders.JSONRenderer',
@@ -145,8 +138,11 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework.authentication.SessionAuthentication',
+    ],
+
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend'
     ]
->>>>>>> 97a6667e2bbcd9f1abc836cfff0a1558cf357bf7
 }
 
 SIMPLE_JWT = {
@@ -165,11 +161,7 @@ SIMPLE_JWT = {
     "JWK_URL": None,
     "LEEWAY": 0,
 
-<<<<<<< HEAD
-    "AUTH_HEADER_TYPES": ("JWT",),
-=======
     "AUTH_HEADER_TYPES": ("Bearer",),
->>>>>>> 97a6667e2bbcd9f1abc836cfff0a1558cf357bf7
     "AUTH_HEADER_NAME": "HTTP_AUTHORIZATION",
     "USER_ID_FIELD": "id",
     "USER_ID_CLAIM": "user_id",
@@ -191,8 +183,4 @@ SIMPLE_JWT = {
     "TOKEN_BLACKLIST_SERIALIZER": "rest_framework_simplejwt.serializers.TokenBlacklistSerializer",
     "SLIDING_TOKEN_OBTAIN_SERIALIZER": "rest_framework_simplejwt.serializers.TokenObtainSlidingSerializer",
     "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 97a6667e2bbcd9f1abc836cfff0a1558cf357bf7
